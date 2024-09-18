@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12 - FOR</title>
+</head>
+<body>
+
+    Qual tabuada deseja ver na tela? (2 ao 9)<br>
+    <select id="select_tabuada">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    <br><br>
+
+    Até qual número a tabuada deve ir?<br>
+    <input type="number" id="input_numero"><br><br>
+    
+
+    <button onclick="tabuada()">
+        Ver Tabuada
+    </button><br>
+    <div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function tabuada(){
+
+        const maximoTabuada =  Number(input_numero.value);
+        const numeroTabuada = Number(select_tabuada.value)
+        resposta.innerHTML = ``;
+        for(var numero = 1; numero<=maximoTabuada; numero++){
+            if(numeroTabuada%2 == 0){
+                resposta.style.color = "#00f"
+            }else{
+                resposta.style.color = "#f00"
+            }
+            resposta.innerHTML += `<br><br>${numero} x ${numeroTabuada} = ${numero*numeroTabuada}`
+        }
+    }
+</script>

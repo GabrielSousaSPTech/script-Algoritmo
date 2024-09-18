@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11 - FOR</title>
+</head>
+<body>
+
+    quantas voltas um carro dará numa corrida?<br>
+    <input type="text" id="input_numero_volta"><BR><BR>
+
+
+    <button onclick="voltaCarro()">
+        Iniciar corrida
+    </button><br><br>
+    <div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function voltaCarro(){
+
+        const numVolta = Number(input_numero_volta.value);
+
+        resposta.innerHTML = ``;
+        for(var contagem = 1; contagem<= numVolta; contagem++){
+            
+                resposta.innerHTML += `Carro dando a ${contagem}ª volta<br><br>`
+            
+        }
+
+        resposta.innerHTML +=`Corrida Finalizada!`
+    }
+</script>
