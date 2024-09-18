@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10 - FOR</title>
+</head>
+<body>
+
+    Deseja iniciar a sequência em qual número?<br>
+    <input type="text" id="input_inicio_intervalo"><BR><BR>
+
+        Deseja finalizar a sequência em qual número?<br>
+        <input type="text" id="input_fim_intervalo"><br><br>
+
+    <button onclick="contagem()">
+        S2 Pares
+    </button><br><br>
+    <div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function contagem(){
+
+        const inputInicio = Number(input_inicio_intervalo.value);
+        const inputFim = Number(input_fim_intervalo.value);
+
+        resposta.innerHTML = ``;
+        for(var contagem = inputInicio; contagem<= inputFim; contagem++){
+            if(contagem%2 ==0){
+                resposta.innerHTML += `${contagem} `
+            }
+        }
+    }
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 08 - OR</title>
+</head>
+<body>
+    Nome da empresa:
+    <input type="text" id="input_nome_empresa"><br><br>
+    valor da Bolsa 
+    <input type="text" id="input_valor_bolsa"><br><br>
+    Valor do VR
+    <input type="text" id="input_valor_vr"><br><br>
+    Deslocamento a empresa até a faculdade
+    <input type="text" id="input_deslocamento"><br><br>
+
+    <button onclick="analiseEmpresa()">
+        É preferida?
+    </button>
+
+    <br><br>
+
+    <div id="resposta"></div>
+
+   
+
+</body>
+</html>
+
+<script>
+    function analiseEmpresa(){
+        const nomeEmpresa = input_nome_empresa.value;
+        const valorBolsa = Number(input_valor_bolsa.value);
+        const valorVr = Number(input_valor_vr.value);
+        const deslocamento = Number(input_deslocamento.value);
+
+        if(valorBolsa >=1800 || valorVr >=20 ||deslocamento <=30){
+            resposta.innerHTML = `A empresa ${nomeEmpresa} é uma de suas preferências`
+        } else{
+            resposta.innerHTML = `A empresa ${nomeEmpresa} está fora de sua lista`
+
+        }
+    }
+
+
+</script>

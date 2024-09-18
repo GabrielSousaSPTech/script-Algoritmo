@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - 10</title>
+</head>
+<body>
+    
+    Peso:<br>
+    <input type="text" id="input_peso"><br><br>
+    Altura em metros:<br>
+    <input type="text" id="input_altura"><br><br>
+    
+    <button onclick="calculoImc()">Calcular Imc</button><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function calculoImc(){
+
+        const peso = Number(input_peso.value);
+        const altura = Number(input_altura.value);
+        
+        const valorImc = peso / (altura*altura);
+       
+        if(valorImc >=18.5){
+            resposta.innerHTML = `Peso Normal`
+            if(valorImc>=25){
+                resposta.innerHTML = `Sobrepeso`
+            }
+        } else{
+            resposta.innerHTML = `Abaixo do peso`
+        }
+    }
+
+</script>

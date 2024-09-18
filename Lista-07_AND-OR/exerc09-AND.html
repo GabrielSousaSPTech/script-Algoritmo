@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 09 - AND</title>
+</head>
+<body>
+
+    Altura Inicial:
+    <input type="text" id="input_altura_inicial"><br><br>
+
+    Altura final 
+    <input type="text" id="input_altura_final"><br><br>
+    
+    Nome do piloto:
+    <input type="text" id="input_nome_piloto"><br><br>
+    Altura do piloto:
+    <input type="text" id="input_altura"><br><br>
+
+    <Button onclick="analiseAltura()">
+        Analisar
+    </Button><br><br>
+
+    <div id="resposta"></div>
+
+</body>
+</html>
+
+<script>
+   function analiseAltura(){
+
+        const nome = input_nome_piloto.value;
+        const altura = Number(input_altura.value);
+        const alturaInicial = Number(input_altura_inicial.value)
+        const alturaFinal = Number(input_altura_final.value)
+        if(alturaInicial >1 && alturaFinal>alturaInicial) {
+            if(altura >=alturaInicial && altura <= alturaFinal){
+                resposta.innerHTML += `<br><br> O candidato ${nome} com altura de ${altura} mt participará do processo de seleção de piloto! `
+            } else{
+                resposta.innerHTML += `<br><br> O candidato ${nome} com altura de ${altura} mt  não atende os requisitos `
+            }
+        } else{
+            resposta.innerHTML += `<br><br> Erro na altura `
+        }
+    }
+
+</script>

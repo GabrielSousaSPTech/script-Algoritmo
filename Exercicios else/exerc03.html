@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03</title>
+</head>
+<body>
+    
+    Frequência do aluno:<br>
+    <input type="text" id="input_frequencia"><br><br>
+    
+    <button onclick="frequenciaAluno()">Analisar Frequência</button><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function frequenciaAluno(){
+
+        const frequencia = input_frequencia.value;
+        
+        if(frequencia<50){
+            resposta.innerHTML = `<img src="https://st3.depositphotos.com/12982378/35274/i/450/depositphotos_352740142-stock-photo-shocked-traveler-hat-backpack-holding.jpg">`
+        }else{
+            resposta.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN9UrE2Z4ekMtUa08i6UiA-6kCaOzpTaMh2g&s">`
+        }
+    }
+
+</script>

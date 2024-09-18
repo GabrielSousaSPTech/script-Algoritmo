@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 05</title>
+</head>
+<body>
+    
+    Temperatura do ambiente:<br>
+    <input type="text" id="input_temperatura"><br><br>
+    
+    <button onclick="medicaoTemperatura()">Verificar Clima</button><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function medicaoTemperatura(){
+
+        const temperatura = input_temperatura.value;
+        
+        if(temperatura<10){
+            resposta.innerHTML = `<p>Apropriada p/ conservar alimento </p><br><img src="https://media.istockphoto.com/id/1315108813/pt/foto/apple-cut-in-half.jpg?s=612x612&w=0&k=20&c=RF9JdvcMu6J5R5XkTGjcg7xTvJJjz7zEQfXUdEH5NGU=">`
+        }else{
+            resposta.innerHTML = `<p>Inapropriado p/ conservar alimento </p><br> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLrEHi93N9iV0XLvt8dkj3cJtCJY4S-RBXsA&s">`
+        }
+    }
+
+</script>

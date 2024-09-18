@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio - 02</title>
+</head>
+<body>
+    <label for="">Registre as parciais dos candidatos</label><br>
+    <input type="text" id="input_votoA" placeholder="Votos no candidato A"><br>
+    <input type="text" id="input_votoB" placeholder="Votos no candidato B"><br>
+    <input type="text" id="input_votoBranco" placeholder="Votos em branco "><br>
+    <input type="text" id="input_votoNulo" placeholder="Votos nulos"><br>
+    <button onclick="parcialCandidato()">Resultado da Eleição: </button>
+
+    <div style="margin: 100px;" id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function parcialCandidato (){
+        var votoA = Number(input_votoA.value);
+        var votoB = Number(input_votoB.value);
+        var votoBranco = Number(input_votoBranco.value);
+        var votoNulo = Number(input_votoNulo.value);
+        var totalVoto = votoA + votoB + votoBranco + votoNulo;
+        alert(`O vencedor foi o Candidato ${votoA > votoB?'A':'B'}! com ${(votoA > votoB? (votoA/totalVoto)*100:(votoB/totalVoto)*100).toFixed(2)}% dos votos`)
+
+        resposta.innerHTML = `
+                            Total de votos: ${totalVoto}<br>
+                            Candidato A: ${((votoA/totalVoto)*100).toFixed(2)}% (${votoA} votos)<br>
+                            Candidato B: ${((votoB/totalVoto)*100).toFixed(2)}% (${votoB} votos)<br>
+                            Inválidos: ${(((votoBranco + votoNulo)/totalVoto)*100).toFixed(2)} % (${votoBranco + votoNulo} votos)`
+    }
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02 - OR</title>
+</head>
+<body>
+    Digite a renda individual do usuário
+    <input type="text" id="input_renda_individual"><br><br>
+    Digite a renda familiar do usuário
+    <input type="text" id="input_renda_familiar"><br><br>
+    <button onclick="avaliacaoBeneficio()">
+        Terei o benefício?
+    </button>
+
+    <div id="resposta"></div>
+
+</body>
+</html>
+
+<script>
+    function avaliacaoBeneficio(){
+        const rendaIndividual = Number(input_renda_individual.value);
+        const rendaFamiliar = Number(input_renda_familiar.value);
+
+        if(rendaIndividual<=2000 ||rendaFamiliar <=3000){
+            resposta.innerHTML = `Você terá direito ao auxílio`
+        }else {
+            
+            resposta.innerHTML = `Sem direito ao auxílio`
+        }
+    }
+
+
+</script>

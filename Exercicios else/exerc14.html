@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - 14</title>
+</head>
+<body>
+    
+    Idade do atleta:<br>
+    <input type="text" id="input_idade"><br><br>
+
+    
+    <button onclick="calculoCategoria()">Verificar Categoria</button><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function calculoCategoria(){
+
+        const idadeAtleta = Number(input_idade.value)
+
+        if(idadeAtleta<=17){
+            resposta.innerHTML= `Categoria Juvenil`
+            if(idadeAtleta<=12){
+                resposta.innerHTML= `Categoria Infantil`
+            }
+        }else{
+            resposta.innerHTML= `Categoria Adulto`
+        }
+
+    }
+
+</script>

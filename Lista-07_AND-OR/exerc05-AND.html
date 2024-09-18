@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05 - AND</title>
+</head>
+<body>
+    Qual a nota do aluno?
+    <input type="text" id="input_notaAluno"><br><br>
+    
+    <button onclick="avaliacaoNota()">
+        Avaliar Aluno
+    </button>
+
+</body>
+</html>
+
+<script>
+    function avaliacaoNota(){
+        const notaAluno = Number(input_notaAluno.value);
+    
+
+        if(notaAluno>=6){
+            if(notaAluno >=8.5 && notaAluno<=10){
+                alert("Aluno Exemplar!");
+            } else{
+                alert("Aluno comum e aprovado");
+            }
+        } else{
+            alert("Aluno não aprovado");
+
+        }
+    }
+
+
+</script>

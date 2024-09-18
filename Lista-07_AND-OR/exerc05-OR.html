@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 05 - OR</title>
+</head>
+<body>
+
+    <h2>Calculadora de cansaço do aluno SPTech. </h2>
+
+    Meio de transporte
+    <select id="input_meio_transporte">
+        <option value="Ônibus">Ônibus</option>
+        <option value="Metrô">metrô</option>
+        <option value="Carro">Carro</option>
+        <option value="bicicleta">Bicicleta</option>
+        <option value="Lotação">Lotação</option>
+    </select>
+
+    <button onclick="celculadoraCansaco()">
+        Calcular cansaço
+    </button>
+
+
+</body>
+</html>
+
+<script>
+    function celculadoraCansaco(){
+        const meioTransporte = input_meio_transporte.value;
+
+
+        if(meioTransporte == 'Carro' || meioTransporte == 'Bicicleta'){
+            alert("ta tranquilo...")
+        } else if (meioTransporte == 'Ônibus' || meioTransporte == 'Lotação') {
+            alert('Vish ... vive cansado.')
+        } else{
+            alert('Um pouco cansado')
+        }
+    }
+
+
+</script>

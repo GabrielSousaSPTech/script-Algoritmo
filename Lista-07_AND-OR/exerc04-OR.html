@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04 - OR</title>
+</head>
+<body>
+    Qual a temperatura atual?
+    <input type="text" id="input_temperatura"><br><br>
+    
+    <button onclick="avaliacaoTemperatura()">
+        Analisar clima
+    </button>
+
+</body>
+</html>
+
+<script>
+    function avaliacaoTemperatura(){
+        const temperatura = Number(input_temperatura.value);
+    
+
+        if(temperatura<21 ||temperatura >24){
+            alert("Alerta de desconforto!");
+
+            if(temperatura >24){
+                alert("As pessoas vão derreter")
+            } else{
+                alert("As pessoas vão ter hipotermia")
+            }
+        }
+    }
+
+
+</script>

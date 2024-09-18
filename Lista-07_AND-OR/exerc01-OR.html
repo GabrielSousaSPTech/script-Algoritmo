@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01 - OR</title>
+</head>
+<body>
+    Digite a nota do ENEM
+    <input type="text" id="input_nota_enem"><br><br>
+    Digite a nota do vestibular interno
+    <input type="text" id="input_nota_vestibular"><br><br>
+    <button onclick="avaliacaoFaculdade()">
+        Avaliação
+    </button>
+
+</body>
+</html>
+
+<script>
+    function avaliacaoFaculdade(){
+        const notaEnem = Number(input_nota_enem.value);
+        const notaVestibular = Number(input_nota_vestibular.value);
+
+        if(notaEnem>=800 ||notaVestibular >=700){
+            alert("Parabéns! Aprovado");
+        }else {
+            alert("Tente semestre que vem!");
+        }
+    }
+
+
+</script>

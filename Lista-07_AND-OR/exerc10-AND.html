@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 10 - AND</title>
+</head>
+<body>
+    Digite a idade:
+    <input type="text" id="input_idade"> <br><br>
+    Digite o salário: 
+    <input type="text" id="input_salario"><br><br>
+    <button onclick="analiseSalario()">
+        Analisar Situação
+    </button><br><br>
+    <div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function analiseSalario(){
+        const idade = Number(input_idade.value);
+        const salario = Number(input_salario.value);
+
+        if(idade<18 && salario<2500){
+            resposta.innerHTML = `Menor de idade e liso`
+        }else if (idade<18 && salario >=2500){
+            resposta.innerHTML = `Menor de idade e ostentação`
+        }else if(idade>=18 && salario<3500){
+            resposta.innerHTML = `Maior de idade e liso`
+        }else if(idade>=18 && salario>=3500 && salario <=7000){
+            resposta.innerHTML = `Maior de idade e ostentação`
+        }else if (idade>=18 && salario >7000){
+            resposta.innerHTML = `Maior de idade e jovem milionário`
+        }
+    }
+</script>

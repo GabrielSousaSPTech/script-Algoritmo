@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04 - AND</title>
+</head>
+<body>
+    Informe o horário em que você costuma assistir acessar a Netflix
+    <input type="text" id="input_horario"><br><br>
+    
+    <button onclick="recomendacaoHorario()">
+        Ver recomendação
+    </button>
+
+</body>
+</html>
+
+<script>
+    function recomendacaoHorario(){
+        const horario = Number(input_horario.value);
+    
+
+        if(horario>=19 && horario <=21){
+            alert(`Não é recomendável que você assista sua série favorita no horário ${horario}h!`)
+            
+        } else{
+            alert(`O horário ${horario}h é adequado para assistir sua série favorita!`)
+
+        }
+    }
+
+
+</script>

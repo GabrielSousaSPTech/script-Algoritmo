@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03 - OR</title>
+</head>
+<body>
+    Qual a forma de pagamento?
+    <select id="input_forma_pagamento">
+        <option value="Dinheiro">Dinheiro</option>
+        <option value="Débito">Cartão de débito</option>
+        <option value="Crédito">Cartão de crédito</option>
+        <option value="Boleto">Boleto </option>
+    </select>
+    
+    <button onclick="analiseFormaPagamento()">
+        Analisar
+    </button>
+
+    <div id="resposta"></div>
+
+</body>
+</html>
+
+<script>
+    function analiseFormaPagamento(){
+        const formaPagamento = input_forma_pagamento.value;
+
+        if(formaPagamento == "Dinheiro" ||formaPagamento == "Débito"){
+            resposta.innerHTML = `Você terá que pagar a vista`
+        }else {
+            
+            resposta.innerHTML = `Pagamento poderá ser parcelado`
+        }
+    }
+
+
+</script>

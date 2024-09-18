@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11 - AND</title>
+</head>
+<body>
+    Adquirir passagens:
+    <input type="number" id="input_qtd_passagem"><br><br>
+    <button onclick="compraPassagem()">
+        Comprar
+    </button><br><br>
+    <div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function compraPassagem(){
+        const quantidadePassagem = Number(input_qtd_passagem.value);
+        var valorPassagem = 4.40;
+
+        if(quantidadePassagem>=8 && quantidadePassagem <=50){
+            if(quantidadePassagem<=19){
+                valorPassagem *=0.97;
+            }else if(quantidadePassagem>=20 && quantidadePassagem<=49){
+                valorPassagem *=0.95;
+            }else if(quantidadePassagem == 50){
+                valorPassagem *=0.93;
+            }
+
+            var totalCompra = valorPassagem *quantidadePassagem
+
+            resposta.innerHTML = `Total a pagar: ${totalCompra.toLocaleString("PT-BR", {style: 'currency', currency: 'BRL'})}`
+
+        }else{
+            alert('Quantidade inválida para o Fidelidade!')
+        }
+
+    }
+</script>

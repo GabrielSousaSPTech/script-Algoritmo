@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio - 01</title>
+</head>
+<body>
+    <label for="inputSono">Quantas horas você dormiu?</label>
+    <input type="text" id="inputSono"><br>
+    <button onclick="TempoDormido()">Calcular</button>
+
+    <div style="margin: 100px;" id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function TempoDormido (){
+        var horaSono = inputSono.value;
+
+        var fase1 = (horaSono*0.05).toFixed(2);
+        // var horaFase1 = Math.floor(fase1)
+        // var minutoFase1 = Math.round((fase1 - horaFase1) * 60)
+        //${horaFase1} Horas e ${minutoFase1} minutos na fase 1 <br>
+
+        var fase2 = (horaSono*0.45).toFixed(2);
+        var fase3 = (horaSono*0.30).toFixed(2);
+        var fase4 = (horaSono*0.20).toFixed(2);
+        resposta.innerHTML = ` Ao dormir ${horaSono} horas, você dormiu: <br>
+                            ${fase1} Horas na fase 1 <br>
+                            ${fase2} Horas na fase 2<br>
+                            ${fase3} Horas na fase 3<br>
+                            ${fase4} Horas na fase REM`
+    }
+
+</script>

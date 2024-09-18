@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - 15</title>
+</head>
+<body>
+    
+    Nome completo:<br>
+    <input type="text" id="input_nome"><br><br>
+    Idade:<br>
+    <input type="text" id="input_idade"><br><br>
+    Peso:<br>
+    <input type="text" id="input_peso"><br><br>
+    Altura:<br>
+    <input type="text" id="input_altura"><br><br>
+    Deseja personal trainer? (Responda "sim" ou "não")<br><br>
+    <input type="text" id="input_personal"><br><br>
+    
+    <button onclick="calculoInscrição()">Calcular Inscrição</button><br>
+
+    <div id="respostaImc"></div>
+    <div id="respostaPersonal"></div>
+    <div id="respostaIdade"></div>
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function calculoInscrição(){
+
+        const nome = input_nome.value;
+        const idade = Number(input_idade.value);
+        const peso = Number(input_peso.value);
+        const altura = Number(input_altura.value);
+        const personal = input_personal.value;
+        var mensalidade = 100
+        const calculoImc = peso/(altura*altura);
+
+        if(calculoImc<30){
+            respostaImc.innerHTML = `Sobrepeso`
+            if(calculoImc <25){
+                respostaImc.innerHTML = `Peso normal`
+            }
+            if(calculoImc<18.5){
+                respostaImc.innerHTML = `Abaixo do peso`
+            }
+
+        }else{
+            respostaImc.innerHTML = `Obesidade`
+        }
+
+if(personal == "sim"){
+    mensalidade +=50;
+    respostaIdade.innerHTML = `plano com personal trainer incluído`
+    
+} else{
+    respostaIdade.innerHTML = `plano sem personal trainer`
+}
+
+
+
+if(idade<60){
+    respostaIdade.innerHTML = `Sem descontos aplicáveis`
+    
+    if(idade<=18){
+        mensalidade -= (mensalidade*0.15)
+        respostaIdade.innerHTML = `Desconto jovem aplicado`
+    }
+    
+} else{
+    mensalidade -= (mensalidade*0.3)
+    respostaIdade.innerHTML = `Desconto sênior aplicado`
+}
+
+resposta.innerHTML = `${nome}, o valor total da sua mensalidade é de R$ ${mensalidade.toFixed(2)}.`
+
+    }
+
+</script>

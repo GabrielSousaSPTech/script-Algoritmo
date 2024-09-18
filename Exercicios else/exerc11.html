@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - 11</title>
+</head>
+<body>
+    
+    Renda Anual:<br>
+    <input type="text" id="input_renda"><br><br>
+
+    
+    <button onclick="calculoImposto()">Calcular Imposto</button><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function calculoImposto(){
+
+        const renda = Number(input_renda.value);
+        
+        if(renda <=50000){
+            resposta.innerHTML = `Isento de imposto`
+            if(renda>=22001){
+                resposta.innerHTML = `Alíquota de 15%`
+            }
+        } else{
+            resposta.innerHTML = `Alíquota de 27,5%`
+        }
+    }
+
+</script>

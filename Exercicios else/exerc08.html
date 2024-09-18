@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - 08</title>
+</head>
+<body>
+    
+    Valor do produto:<br>
+    <input type="text" id="input_valor_produto"><br><br>
+    Quantidade:<br>
+    <input type="text" id="input_quantidade"><br><br>
+    
+    <button onclick="calculoCompra()">Calcular Consumo</button><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function calculoCompra(){
+
+        const valor = Number(input_valor_produto.value);
+        const quantidade = Number(input_quantidade.value);
+        const valorTotal = valor*quantidade; 
+        if(valorTotal>=100){
+            resposta.innerHTML = `Compra aprovada, valor total é de R$ ${valorTotal}`
+        }else{
+            resposta.innerHTML = `Valor mínimo para compra é de R$100,00, adicione mais produtos!`
+        }
+    }
+
+</script>

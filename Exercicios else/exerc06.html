@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 06</title>
+</head>
+<body>
+    
+    Homens no elevador:<br>
+    <input type="text" id="input_homem"><br><br>
+    Muheres no elevador:<br>
+    <input type="text" id="input_mulher"><br><br>
+    
+    <button onclick="capacidadeElevador()">Ligar Elevador</button><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function capacidadeElevador(){
+
+        const qtdHomem = Number(input_homem.value);
+        const qtdMulher = Number(input_mulher.value);
+        const pesoElevador = (qtdHomem*90) + (qtdMulher*70)
+        if(pesoElevador<=500){
+            resposta.innerHTML = `Elevador vai se mover, pois está com ${pesoElevador}kg`
+        }else{
+            resposta.innerHTML = `Alguém precisa descer. Precisa perder ${pesoElevador - 500}kg para mover o elevador`
+        }
+    }
+
+</script>

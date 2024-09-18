@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06 - OR</title>
+</head>
+<body>
+
+    <h2>Calculadora de cansaço aprimorada do aluno SPTech.  </h2>
+
+    Meio de transporte
+    <select id="input_meio_transporte">
+        <option value="Ônibus">Ônibus</option>
+        <option value="Metrô">metrô</option>
+        <option value="Carro">Carro</option>
+        <option value="bicicleta">Bicicleta</option>
+    
+    </select><br><br>
+    Distancia da Faculdade (KM)
+    <input type="text" id="input_distancia_faculdade">
+
+    <button onclick="celculadoraCansaco()">
+        Calcular cansaço
+    </button>
+
+   
+
+</body>
+</html>
+
+<script>
+    function celculadoraCansaco(){
+        const meioTransporte = input_meio_transporte.value;
+        const distanciaFaculdade = input_distancia_faculdade.value;
+
+
+        if(distanciaFaculdade<=10){
+            if(meioTransporte =='Carro' ||meioTransporte =='Metrô' || meioTransporte =='Ônibus'){
+                alert('Tá tranks...')
+            } else{
+                alert('É ... um pouco cansado ...')
+            }
+        }else{
+            if(meioTransporte == 'Carro'){
+                alert('É... um pouco cansado...')
+            } else if (meioTransporte == 'Metrô' || meioTransporte == 'Ônibus'){
+                alert('Bem cansado...')
+            }else{
+                alert('vish... ta só o pó')
+            }
+        }
+    }
+
+
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02</title>
+</head>
+<body>
+    
+    Saldo:<br>
+    <input type="text" id="input_saldo"><br><br>
+    Saque:<br>
+    <input type="text" id="input_debito"><br><br>
+    <button onclick="saqueConta()">Analisar Conta</button>
+
+    <div id="resposta"></div>
+
+</body>
+</html>
+
+<script>
+
+    function saqueConta(){
+        var saldo = Number(input_saldo.value);
+        const debito = Number(input_debito.value);
+
+        saldo -= debito;
+
+        if(saldo>0){
+            resposta.innerHTML = `O saldo atual da conta corrente é positivo: ${saldo}`
+        } else{
+            resposta.innerHTML = `O saldo atual da conta corrente é negativo: ${saldo}`
+
+        }
+    }
+
+</script>

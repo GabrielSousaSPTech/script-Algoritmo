@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 09 - FOR</title>
+</head>
+<body>
+
+    Qual frase deseja repetir?<br>
+    <input type="text" id="input_frase"><br><br>
+    
+    Quantas vezes?<br>
+    <input type="number" id="input_numero"><br><br>
+    
+    
+
+    <button onclick="repeticaoFrase()">
+        Papagaio!
+    </button><br><br>
+  
+</body>
+</html>
+
+<script>
+    function repeticaoFrase(){
+        const vezesRepeticao =  Number(input_numero.value);
+        const frase = input_frase.value;
+
+        
+        for(var numero =1; numero<=vezesRepeticao; numero++){
+            alert(`${numero} - ${frase}`)
+        }
+    }
+</script>

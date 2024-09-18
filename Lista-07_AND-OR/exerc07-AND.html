@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07 - AND</title>
+</head>
+<body>
+    login:
+    <input type="text" id="input_login"><br><br>
+
+    Senha:
+    <input type="password" id="input_senha"><br><br>
+    
+    <button onclick="checarCredenciais()">
+        Entrar
+    </button> 
+
+    <button onclick="verSenha()">
+        Mostrar Senha
+    </button>
+
+</body>
+</html>
+
+<script>
+    function checarCredenciais(){
+        const login = input_login.value;
+        const senha = input_senha.value
+
+        if(login=="SPTech" && senha=="digital"){
+            
+            alert("Usuário autenticado com sucesso");
+        } else{
+            
+            alert("Falha na autenticação");
+
+        }
+    }
+
+    function verSenha(){
+        if(input_senha.type =='text'){
+            input_senha.type = 'password'
+        } else{
+            input_senha.type = 'text'
+        }
+    }
+
+
+</script>

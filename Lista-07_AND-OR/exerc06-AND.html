@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06 - AND</title>
+</head>
+<body>
+    Qual a nota do aluno?
+    <input type="text" id="input_notaAluno"><br><br>
+
+    Qual a frequência do aluno?
+    <input type="text" id="input_frequencia_aluno"><br><br>
+    
+    <button onclick="avaliacaoNota()">
+        Avaliar Aluno
+    </button>
+
+</body>
+</html>
+
+<script>
+    function avaliacaoNota(){
+        const notaAluno = Number(input_notaAluno.value);
+        const frequencia = Number(input_frequencia_aluno.value)
+
+        if(notaAluno>=6 && frequencia>=75){
+            
+            alert("Parabéns! Aprovado!");
+        } else{
+            alert("Infelizmente, não foi desta vez");
+
+        }
+    }
+
+
+</script>

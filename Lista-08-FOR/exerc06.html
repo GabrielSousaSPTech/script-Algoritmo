@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06 - FOR</title>
+</head>
+<body>
+
+    Qual o Nome da pessoa que você mais ama?<br>
+    <input type="text" id="input_nome"><br><br>
+    Quanto você o ama?<br>
+    <input type="text" id="input_quantidade_amor"><br><br>
+
+    <button onclick="quantidadeAmor()">
+        Expressar Amor
+    </button><br><br>
+    <div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function quantidadeAmor(){
+
+        const nome = input_nome.value;
+        const qtdAmor =  Number(input_quantidade_amor.value);
+        resposta.innerHTML = ``;
+        for(var numero = 1; numero<=qtdAmor; numero++){
+            resposta.innerHTML += `${numero} - ${nome}, eu te amo!Sempre lembre disso!<br>`
+        }
+    }
+</script>

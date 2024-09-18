@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01</title>
+</head>
+<body>
+    
+    Nome:<br>
+    <input type="text" id="input_nome"><br><br>
+    Idade:<br>
+    <input type="text" id="input_idade"><br><br>
+    <button onclick="calculoIdade()">Avaliar Aluno</button>
+
+    <div id="resposta"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calculoIdade(){
+        const nome = input_nome.value;
+        const idade = input_idade.value;
+
+        if(idade>=18){
+            resposta.innerHTML = ` ${nome} vamos tirar a CNH?`
+        }else{
+            resposta.innerHTML = ` ${nome} vai jogar PlayStation!`
+
+        }
+    }
+
+</script>

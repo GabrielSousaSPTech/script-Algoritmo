@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - 12</title>
+</head>
+<body>
+    
+    Peso do pacote (kg):<br>
+    <input type="text" id="input_peso"><br><br>
+    Distância percorrida (km):<br>
+    <input type="text" id="input_distancia"><br><br>
+
+    
+    <button onclick="CalculoFrete()">Calcular Frete</button><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function CalculoFrete(){
+        const peso = Number(input_peso.value);
+        const distancia = Number(input_distancia.value);
+        
+        if(peso<=5){
+            if(distancia<=100){
+                resposta.innerHTML = `Frete econômico`
+            }else{
+                resposta.innerHTML = `Frete Normal`
+            }
+        }else{
+            resposta.innerHTML = `Frete Normal`
+        }
+    }
+      
+
+</script>

@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01 - FOR</title>
+</head>
+<body>
+    <button onclick="contagem()">
+        Contar
+    </button><br><br>
+    <div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function contagem(){
+        resposta.innerHTML = ``;
+        for(var contagem = 1; contagem<=15; contagem++){
+            resposta.innerHTML += `${contagem}<br>`
+        }
+    }
+</script>
+

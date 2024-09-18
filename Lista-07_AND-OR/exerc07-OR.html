@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07 - OR</title>
+</head>
+<body>
+
+    <h2>Calculadora de cansaço aprimorada do aluno SPTech.  </h2>
+
+    Marca da TV
+    <select id="input_marca_tv">
+        <option value="Samsung">Samsung</option>
+        <option value="LG">LG</option>
+        <option value="Mondial">Mondial</option>
+        <option value="Britânia">Britânia</option>
+    
+    </select><br><br>
+    Preço da TV
+    <input type="text" id="input_preco_tv">
+
+    <button onclick="analiseCompra()">
+        Analisar Compra
+    </button>
+
+    <br><br>
+
+    <div id="resposta"></div>
+
+   
+
+</body>
+</html>
+
+<script>
+    function analiseCompra(){
+        const marcaTV = input_marca_tv.value;
+        const precoTV = Number(input_preco_tv.value);
+
+        if(precoTV<800 ||precoTV >2000){
+            resposta.innerHTML = `TV fora da faixa de preço`
+
+            if(precoTV<800){
+                resposta.innerHTML += `<br><br> Preço baixo demais!`
+            }else{
+                resposta.innerHTML += `<br><br> TV cara demais, infelizmente`
+
+            }
+        }else{
+            if(marcaTV == 'Mondial' || marcaTV == 'Britânia'){
+                resposta.innerHTML = `Na faixa de preço, porém marca não confiável`
+            } else{
+                resposta.innerHTML = `Essa TV pode entrar na sua lista!`
+
+            }
+        }
+    }
+
+
+</script>

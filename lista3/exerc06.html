@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio - 06</title>
+</head>
+<body>
+    <label for="">Digite o ki base (força base)</label>
+    <input type="text" id="valorKi"><br>
+    <label for="">Transformar em:</label>
+
+    
+    <button onclick="calculoSSJ()">SSJ</button>
+    <button onclick="calculoSSJ2()">SSJ2</button>
+    <button onclick="calculoSSJ3()">SSJ3</button>
+
+    <div style="margin: 100px;" id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function calculoSSJ(){
+        var ki = Number(valorKi.value);
+
+        resposta.innerHTML = `Após se transformar em Super Sayajin, o ki desse Sayajin passa a ser de ${ki*50}`
+    }
+    function calculoSSJ2(){
+        var ki = Number(valorKi.value);
+
+        resposta.innerHTML = `Após se transformar em Super Sayajin 2, o ki desse Sayajin passa a ser de ${ki*100}`
+    }
+    function calculoSSJ3(){
+        var ki = Number(valorKi.value);
+
+        resposta.innerHTML = `Após se transformar em Super Sayajin 3, o ki desse Sayajin passa a ser de ${ki*200}`
+    }
+
+</script>

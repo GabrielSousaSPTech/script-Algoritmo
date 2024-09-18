@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio - 04</title>
+</head>
+<body>
+    <label for="">Qual sabor de pizza deseja?</label>
+    <input type="text" id="inputSaborPizza"><br>
+    <label for="">Qual o valor da pizza?</label>
+    <input type="text" id="inputValorPizza"><br>
+    <label for="">Quantos amigos irão comer?</label>
+    <input type="text" id="inputAmigo"><br>
+    <button onclick="racharPizza()">Ver valor por amigo</button>
+
+    <div style="margin: 100px;" id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function racharPizza (){
+        var saborPizza = inputSaborPizza.value;
+        var valorPizza = Number(inputValorPizza.value);
+        var valorTotal = (valorPizza*0.10) + valorPizza
+        var amigo = Number(inputAmigo.value);
+
+        resposta.innerHTML= `Cada amigo vai colaborar com R$ ${(valorTotal/amigo).toFixed(2)} para a pizza de ${saborPizza}`
+
+        
+    }
+
+</script>

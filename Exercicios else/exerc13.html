@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - 13</title>
+</head>
+<body>
+    
+    Valor do empréstimo:<br>
+    <input type="text" id="input_valor_emprestimo"><br><br>
+    Quantidade de parcelas:<br>
+    <input type="text" id="input_quantidade_parcela"><br><br>
+    Taxas de juros ao mês:<br>
+    <input type="text" id="input_juros"><br><br>
+    
+    <button onclick="calculoEmprestimo()">Calcular Juros</button><br>
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function calculoEmprestimo(){
+
+        const valor = Number(input_valor_emprestimo.value);
+        const quantidadeParcela = Number(input_quantidade_parcela.value);
+        var taxaJuros = Number(input_juros.value);
+
+        taxaJuros/=100;
+        const valorTotal = valor + (valor*taxaJuros * quantidadeParcela)
+        const valorParcela = valorTotal/quantidadeParcela
+
+        if(valorParcela<=1000){
+            resposta.innerHTML = `Parcela aceitável: R$ ${valorParcela}`
+        } else{
+            resposta.innerHTML = `Parcela alta, considere aumentar o número de parcelas!`
+
+        }
+
+    }
+
+</script>
