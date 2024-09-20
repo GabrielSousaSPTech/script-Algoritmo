@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14 - FOR</title>
+</head>
+<body>
+
+    Digite a sua idade:<br>
+    <input type="number" id="input_idade" onkeyup="faseDaVida()"><br><br>
+
+    
+
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+
+<script>
+
+
+function faseDaVida(){
+
+    const idade = Number(input_idade.value);
+
+
+    for(var contagem = 0 ; contagem<=idade; contagem ++){
+        if(contagem>=0 && contagem<=4){
+            resposta.innerHTML += `${contagem} anos (Primeira Infância)<br><br>`
+        } else if(contagem>4 && contagem<=6){
+            resposta.innerHTML += `${contagem} anos (Pré-escolar)<br><br>`
+        }else if(contagem>6 && contagem<=10){
+            resposta.innerHTML += `${contagem} anos (Segunda Infância)<br><br>`
+        }else if(contagem>10 && contagem<=18){
+            resposta.innerHTML += `${contagem} anos (Adolescência)<br><br>`
+        }else if(contagem>18 && contagem<=50){
+            resposta.innerHTML += `${contagem} anos (Adulto)<br><br>`
+        }else if(contagem >50 && contagem<=100){
+            resposta.innerHTML += `${contagem} anos (melhor idade)<br><br>`
+        }else{
+            resposta.innerHTML += `${contagem} anos (Matusalém)<br><br>`
+
+        }
+    }
+
+     
+    
+}
+</script>

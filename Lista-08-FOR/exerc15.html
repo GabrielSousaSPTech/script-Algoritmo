@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 15 - FOR</title>
+</head>
+<body>
+
+    Digite a quantidade de elefantes:<br>
+    <input type="number" id="input_qtd_elefante"><br><br>
+    <button onclick="musicaElefante()">
+        Atazanar a médium
+    </button> <br><br>
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+
+<script>
+
+
+function musicaElefante(){
+
+    const qtdElefante = Number(input_qtd_elefante.value);
+    resposta.innerHTML = ``;
+    for(var contagem = 2; contagem<=qtdElefante; contagem++){
+        
+            resposta.innerHTML += `1 elefante incomoda muita gente!<br><br>`
+            
+            resposta.innerHTML += `${contagem} elefantes `
+            for(var subContagem = 1; subContagem <=contagem; subContagem ++){
+                resposta.innerHTML += `incomodam `
+            }
+        resposta.innerHTML += `muito mais!<br><br> `
+    }
+    
+}
+</script>

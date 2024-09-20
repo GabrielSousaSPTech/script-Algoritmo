@@ -7,11 +7,9 @@
 </head>
 <body>
 
-    Digite a sua idade:<br>
-    <input type="number" id="input_idade"><br><br>
-
-    
-
+    Qual o intervalo de dias entre a musculação?:<br>
+    <input type="number" id="input_dia"><br><br>
+    <button onclick="calculoMusculacao()">Exibir rotina mensal</button> <br><br>
     <div id="resposta"></div>
     
 </body>
@@ -21,12 +19,18 @@
 <script>
 
 
-function faseDaVida(){
+function calculoMusculacao(){
 
-    const idade = Number(input_idade.value);
+    const dia = Number(input_dia.value);
+    resposta.innerHTML = ``;
+    for(var contagem = 1; contagem<=30; contagem++){
+        if(contagem == 1 || contagem%dia == 1){
+            resposta.innerHTML += `Dia ${contagem} - Musculação<br><br>`
+        } else{
+            resposta.innerHTML += `Dia ${contagem} - Comer, dormir, etc.<br><br>`
 
-
-     idade.addEventListener("keyup", up)
+        }
+    }
     
 }
 </script>
