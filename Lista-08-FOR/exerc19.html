@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 19 - FOR</title>
+</head>
+<body>
+
+    Quantas xícaras de café com leite você já tomou na vida?<br>
+    <input type="number" id="input_qtd_caféComLeite"><br><br>
+
+    <button onclick="contadorCocaCola()">
+        Ver a quantidade
+    </button> <br><br>
+    <div id="resposta"></div>
+    
+
+
+</body>
+</html>
+
+
+<script>
+
+
+function contadorCocaCola(){
+
+    const qtdCafeComLeite = Number(input_qtd_caféComLeite.value);
+    const qtdCafe = qtdCafeComLeite*2
+    resposta.innerHTML = ``;
+    for(var contagem = 1; contagem<=qtdCafeComLeite; contagem++){
+        
+        resposta.innerHTML += `
+            ${contagem} - 
+        <img src="https://minhasaude.proteste.org.br/wp-content/webp-express/webp-images/uploads/2023/06/colher-carregando-punhado-de-leite-em-po-sobre-fundo-branco.jpg.webp" alt="" width=200 height=200> 
+        `  
+    }
+    for(var contagemCafe = 1; contagemCafe<=qtdCafe; contagemCafe ++){
+        resposta.innerHTML += `${contagemCafe} - 
+        <img src="https://img.freepik.com/fotos-premium/graos-de-cafe-em-uma-colher-de-pau-em-um-fundo-branco_387681-160.jpg?w=1380" alt="" width=200 height=200>`
+    }
+}
+</script>

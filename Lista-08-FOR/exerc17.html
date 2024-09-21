@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 17 - FOR</title>
+</head>
+<body>
+
+    quantas pessoas, vão entrar no carro ?<br>
+    <input type="number" id="input_qtd_pessoa"><br><br>
+    Capacidade do Carro:<br>
+    <input type="text" id="input_capacidade_carro"><br><br>
+    <button onclick="capacidadeCarro()">
+        #Partiu Carona
+    </button> <br><br>
+    <div id="resposta"></div>
+    
+</body>
+</html>
+
+
+<script>
+
+
+function capacidadeCarro(){
+
+    const qtdPessoa = Number(input_qtd_pessoa.value);
+    const capacidadeCarro = Number(input_capacidade_carro.value);
+    resposta.innerHTML = ``;
+    for(var contagem = 1; contagem<=qtdPessoa; contagem++){
+        
+        if(contagem == 1){
+            resposta.innerHTML += `Entrou o 1º passageiro (que é o(a) motorista) <br><br>`
+        } else if(contagem>= 2 && contagem<=capacidadeCarro){
+            resposta.innerHTML += `Entrou o ${contagem}º passageiro <br><br>`
+        } else if(contagem>capacidadeCarro){
+            resposta.innerHTML += `O ${contagem}º terá que esperar! <br><br>`
+        }
+            
+    }
+    
+}
+</script>

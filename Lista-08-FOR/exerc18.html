@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 18 - FOR</title>
+</head>
+<body>
+
+    quantas "Coca-Cola" você acha que já bebeu na vida ?<br>
+    <input type="number" id="input_qtd_cocaCola"><br><br>
+
+    <button onclick="contadorCocaCola()">
+        Ver a quantidade
+    </button> <br><br>
+    <div id="resposta"></div>
+    
+
+
+</body>
+</html>
+
+
+<script>
+
+
+function contadorCocaCola(){
+
+    const qtdCocaCola = Number(input_qtd_cocaCola.value);
+   
+    resposta.innerHTML = ``;
+    for(var contagem = 1; contagem<=qtdCocaCola; contagem++){
+        
+        resposta.innerHTML += `<img src="https://andinacocacola.vtexassets.com/arquivos/ids/157652-1600-auto?v=638404083624500000&width=1600&height=auto&aspect=true" alt="" width=200 height=200> `;
+            
+    }
+    
+}
+</script>

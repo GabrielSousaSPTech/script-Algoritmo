@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 27 - FOR</title>
+</head>
+<body>
+
+    Informe um número positivo para limite da contagem: <br>
+    <input type="text" id="input_numero_limite"><br><br>
+    Informe um número para testes de divisibilidade<br>
+    <input type="text" id="input_divisor"><br><br>
+    <button onclick="somaPares()">
+        Somar Números
+    </button> <br><br>
+    <div id="resposta"></div>
+    
+
+
+</body>
+</html>
+
+
+<script>
+
+
+function somaPares(){
+
+    const limiteNumero = Number(input_numero_limite.value);
+    const divisor = Number(input_divisor.value);
+    var count = 0
+    resposta.innerHTML = ``
+    if(divisor>0 && divisor<=limiteNumero){
+        for(var contagem = 1; contagem<=limiteNumero; contagem++){
+            if(contagem%divisor == 0){
+                count +=contagem
+                resposta.innerHTML += `${contagem}<br><br>`
+            }
+        }
+        resposta.innerHTML += `<br>Soma dos Múltiplos: ${count}`
+    }else {
+        resposta.innerHTML = `Numero(s) inválidos`
+    }
+}
+</script>

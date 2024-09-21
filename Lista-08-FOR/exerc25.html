@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 25 - FOR</title>
+</head>
+<body>
+
+    Informe um número entre 0 a 100: <br>
+    <input type="text" id="input_numero"><br><br>
+    
+    <button onclick="verificacaoDivisores()">
+        Contar
+    </button> <br><br>
+    <div id="resposta"></div>
+    
+
+
+</body>
+</html>
+
+
+<script>
+
+
+function verificacaoDivisores(){
+
+    const divisor = Number(input_numero.value);
+    var numeroPrimo = 0
+    resposta.innerHTML = ``;
+    resposta.innerHTML += `Divisores do número ${divisor}: <br><br>`
+    for(var contagem = 1; contagem<=100;contagem++){
+        if(divisor%contagem == 0){
+            if(contagem == 1 || contagem == divisor){
+                numeroPrimo++
+            }else{
+                numeroPrimo++
+            }
+            resposta.innerHTML += `<br>${contagem}`
+        }
+    }
+    if(numeroPrimo == 2){
+
+        resposta.innerHTML = `<br><br>O número ${divisor} é um número primo.`       
+}
+
+}
+</script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 23 - FOR</title>
+</head>
+<body>
+
+    Limite inferior de amostragem: (maior que 1)<br>
+    <input type="number" id="input_amostragem_inferior"><br><br>
+    Limite superior de amostragem: (menor que 100 e maior que o limite inferior)<br>
+    <input type="text" id="input_amostragem_superior"><br><br>
+    Número para testar a divisibilidade(entre 3 e 10)<br>
+    <input type="text" id="input_divisibilidade">
+    <button onclick="sistemaNumerico()">
+        Contar
+    </button> <br><br>
+    <div id="resposta"></div>
+    
+
+
+</body>
+</html>
+
+
+<script>
+
+
+function sistemaNumerico(){
+
+    const amostragemInferior = Number(input_amostragem_inferior.value);
+    const amostragemSuperior = Number(input_amostragem_superior.value)
+    const divisibilidade = Number(input_divisibilidade.value)
+    if(amostragemInferior<=1 ||amostragemSuperior>=100 ||divisibilidade<3 || divisibilidade>10){
+        resposta.innerHTML += `<br> Número(s) inválido(s)`
+    }else{
+        var contagem = amostragemInferior
+        var countNumeroExibido = 0;
+        var somaNumeroExibido = 0;
+        var maiorNumeroExibido = 0;
+        var menorNumeroExibido = 99;
+        resposta.innerHTML = ``;
+        resposta.innerHTML += `Números Divisiveis por ${divisibilidade}: <br><br>`
+        for(contagem; contagem<=amostragemSuperior; contagem++){
+            if(contagem%divisibilidade == 0){
+                countNumeroExibido++
+                somaNumeroExibido +=contagem
+                if(contagem> maiorNumeroExibido){
+                    maiorNumeroExibido = contagem
+                }
+                 if(contagem<menorNumeroExibido){
+                    menorNumeroExibido = contagem
+                }
+                resposta.innerHTML += ` ${contagem}<br><br>`
+                
+            }
+        }
+        resposta.innerHTML += `QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${countNumeroExibido}<br><br>
+        SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${somaNumeroExibido}<br><br>
+        MÉDIA DOS NÚMEROS EXIBIDOS: ${somaNumeroExibido/countNumeroExibido}<br><br>
+        MAIOR NÚMERO EXIBIDO: ${maiorNumeroExibido}<br><br>
+        MENOR NÚMERO EXIBIDO: ${menorNumeroExibido}<br><br>
+
+        `
+
+    
+    }   
+
+}
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 24 - FOR</title>
+</head>
+<body>
+
+    Informe um número entre 0 a 100: <br>
+    <input type="text" id="input_numero"><br><br>
+    
+    <button onclick="verificacaoDivisores()">
+        Contar
+    </button> <br><br>
+    <div id="resposta"></div>
+    
+
+
+</body>
+</html>
+
+
+<script>
+
+
+function verificacaoDivisores(){
+
+    const divisor = Number(input_numero.value);
+    resposta.innerHTML = ``;
+    resposta.innerHTML += `Divisores do número ${divisor}: <br><br>`
+    for(var contagem = 1; contagem<=100;contagem++){
+
+        if(divisor%contagem == 0){
+            resposta.innerHTML += `<br><br> ${contagem}`       
+        }
+    }
+
+}
+</script>

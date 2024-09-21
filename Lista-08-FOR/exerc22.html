@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 22 - FOR</title>
+</head>
+<body>
+
+    quantos depósitos você fez no banco?<br>
+    <input type="number" id="input_qtd_deposito"><br><br>
+    Qual o valor do depósito<br>
+    <input type="text" id="input_valor_deposito"><br><br>
+
+    <button onclick="historicoDeposito()">
+        Acompanhar grana
+    </button> <br><br>
+    <div id="resposta"></div>
+    
+
+
+</body>
+</html>
+
+
+<script>
+
+
+function historicoDeposito(){
+
+    const qtdDeposito = Number(input_qtd_deposito.value);
+    var valorDeposito = Number(input_valor_deposito.value)
+    var totalDeposito = 0
+    resposta.innerHTML = ``;
+    for(var contagem = 1; contagem<=qtdDeposito; contagem++){
+        totalDeposito += valorDeposito
+        if(contagem%3 == 0){
+            totalDeposito *=1.01
+            resposta.innerHTML +=`${contagem}º Mês: ${totalDeposito.toLocaleString("pt-BR",{style: 'currency', currency: 'BRL'})} <img src="https://static4.depositphotos.com/1026550/376/i/950/depositphotos_3763236-stock-photo-gold-star.jpg" alt=""
+             width=15 height=15> <br>`
+        }else{
+
+            resposta.innerHTML += `${contagem}º Mês: ${totalDeposito.toLocaleString("pt-BR",{style: 'currency', currency: 'BRL'})}<br>`
+        }
+        
+    }
+    resposta.innerHTML += `<br> Total guardado: ${totalDeposito.toLocaleString("pt-BR",{style: 'currency', currency: 'BRL'})}`
+
+}
+</script>
