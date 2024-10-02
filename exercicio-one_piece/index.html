@@ -1,58 +1,114 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de episódios - One Pece</title>
+    <title>Assistir Episódios</title>
 </head>
 <body>
-    <p>Episodio que deseja começar assistind:
 
-        <input type="text" id="episodio_inicial">
-    </p>
-    <p>Quantidade de tempo disponível:
+       Episódio que deseja começar assistindo:
+        <input type="text" id="episodio" name="episodio"><br><br>
 
-        <input type="text" id="input_tempo_disponivel">
-    </p>
-    <p>Unidade de tempo em: 
-        <select id="select_unidade_tempo">
-            <option value="hora">Horas</option>
-            <option value="minuto">Minutos</option>
-        </select>
-    </p>
-<p>
-    Pular abertura?
-    <select name="" id="select_pular_abertura">
-        <option value="true">sim</option>
-        <option value="false">nao</option>
-    </select>
-</p>
-<p>
-    Pular encerramento?
-    <select name="" id="select_pular_encerramento">
-        <option value="true">sim</option>
-        <option value="false">nao</option>
-    </select>
-</p>
+       Quantidade de tempo disponível:
+        <input type="number" id="tempo" name="tempo"><br><br>
 
-<button onclick="calculadoraEpisodio()">
-    Assistir Episódios
-</button>
+        Unidade de tempo em:
+        <select id="unidade" name="unidade">
+            <option value="minutos">Minutos</option>
+            <option value="horas">Horas</option>
+        </select><br><br>
 
+        Pular abertura?
+        <select id="input_pularAbertura" name="pularAbertura">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select><br><br>
 
+        Pular encerramento?
+        <select id="input_pularEncerramento" name="pularEncerramento">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select><br><br>
+
+        <button onclick="calculoOnePiece()">Assistir Episódios</button>
+  
+
+    <div id="resposta"></div>
 </body>
 </html>
 
 <script>
-    function calculadoraEpisodio(){
-        const episodioInicial = Number(input_episodio_inicial.value);
-        const tempoDisponivel = Number(input_tempo_disponivel.value);
-        const unidadeTempo = select_unidade_tempo.value;
-        const pularAbertura = select_pular_abertura.value;
-        const pularEncerramento = select_pular_encerramento.value;
+    function calculoOnePiece(){
+        resposta.innerHTML =''
+        var epInicial = Number (episodio.value);
+        var tempoDisponivel = Number (tempo.value);
+        const unidadeTempo = unidade.value;
+        const pularAbertura = input_pularAbertura.value;
+        const pularEncerramento = input_pularEncerramento.value;
+        var tempoAssistir = tempoDisponivel
+    var tempoEpisodio = 24
+    
+    if(epInicial <1 || epInicial >1100){
+        alert("EPISODIO INVALIDO");
+    }else {
+        
+        
+        if(unidadeTempo == 'horas'){
+            tempoAssistir*=60
+            tempoDisponivel*=60
+        }
+        
+        if(pularAbertura == 'sim' && pularEncerramento == 'nao'){
+            tempoEpisodio -=2
+        }else if (pularAbertura == 'nao' && pularEncerramento =='sim'){
+            tempoEpisodio -=2
+            
+        }else if(pularAbertura == 'sim' && pularEncerramento == 'sim'){
+            tempoEpisodio -=4
+        }
+        
+        
+        for (var minuto = 1; minuto <=tempoAssistir; minuto++){
 
-        if(episodioInicial <1 || episodioInicial >1100){
+            if(minuto ==tempoEpisodio+1){
+                tempoAssistir -= tempoEpisodio
+                minuto = 1
+                epInicial ++ 
+            }
+            if(minuto == 1){
+                resposta.innerHTML += `<p>Episódio: ${epInicial}</p>`
+            }
+            
+            if(pularAbertura == 'sim' && pularEncerramento == 'sim'){
+                resposta.innerHTML += `Minuto ${minuto} Assistindo o episódio<br>`
+            }else if(pularAbertura == 'sim' && pularEncerramento =='nao'){
+                if(minuto<=20){
+                    resposta.innerHTML += `Minuto ${minuto} Assistindo o episódio<br>`
+                }else{
+                    resposta.innerHTML += `Minuto ${minuto} Assistindo o Encerramento<br>`
+                    
+                }
+            }else if(pularAbertura == 'nao' && pularEncerramento == 'sim'){
+                if(minuto<=2){
+                    resposta.innerHTML += `Minuto ${minuto} Assistindo a abertura<br>`
+                }else{
+                    resposta.innerHTML += `Minuto ${minuto} Assistindo o episódio<br>`
+                }
+            }else{
+                if(minuto<=2){
+                    resposta.innerHTML += `Minuto ${minuto} Assistindo a abertura<br>`
+                }else if(minuto<=22){
+                    resposta.innerHTML += `Minuto ${minuto} Assistindo o episódio<br>`
+                }else{
+                    resposta.innerHTML += `Minuto ${minuto} Assistindo o Encerramento<br>`
+                }
+
+            }
             
         }
+        resposta.innerHTML += `<br>Fim dos episódios!<br><br>Foram assistidos: ${tempoDisponivel/tempoEpisodio} episódios`
+            
+    }
     }
 </script>
