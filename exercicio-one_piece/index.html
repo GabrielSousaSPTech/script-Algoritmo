@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de episódios - One Pece</title>
+</head>
+<body>
+    <p>Episodio que deseja começar assistind:
+
+        <input type="text" id="episodio_inicial">
+    </p>
+    <p>Quantidade de tempo disponível:
+
+        <input type="text" id="input_tempo_disponivel">
+    </p>
+    <p>Unidade de tempo em: 
+        <select id="select_unidade_tempo">
+            <option value="hora">Horas</option>
+            <option value="minuto">Minutos</option>
+        </select>
+    </p>
+<p>
+    Pular abertura?
+    <select name="" id="select_pular_abertura">
+        <option value="true">sim</option>
+        <option value="false">nao</option>
+    </select>
+</p>
+<p>
+    Pular encerramento?
+    <select name="" id="select_pular_encerramento">
+        <option value="true">sim</option>
+        <option value="false">nao</option>
+    </select>
+</p>
+
+<button onclick="calculadoraEpisodio()">
+    Assistir Episódios
+</button>
+
+
+</body>
+</html>
+
+<script>
+    function calculadoraEpisodio(){
+        const episodioInicial = Number(input_episodio_inicial.value);
+        const tempoDisponivel = Number(input_tempo_disponivel.value);
+        const unidadeTempo = select_unidade_tempo.value;
+        const pularAbertura = select_pular_abertura.value;
+        const pularEncerramento = select_pular_encerramento.value;
+
+        if(episodioInicial <1 || episodioInicial >1100){
+            
+        }
+    }
+</script>
