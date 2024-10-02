@@ -1,0 +1,24 @@
+QuestãoRandom -
+
+1 - Solicite ao usuário o seu nome.
+2 - Solicite ao usuário se ele quer pedra, papel e tesoura.
+3 - Com a solicitação, compare com a resposta do sistema.
+	3a - Exemplo: Se o usuário escolher papel e o sistema escolher tesoura, o sistema ganha um ponto. Se for papel e o sistema escolher pedra, o usuário ganha um ponto, 
+	se ambos escolherem papel, nenhum dos dois pontua.
+	
+	3b - Papel ganha de pedra e perde para tesoura
+	3c - Tesoura ganha de papel e perde para pedra
+	3d - Pedra ganha de tesoura e perde para papel
+
+4 - A cada rodada aparece na tela qual jogada o usuário escolheu e qual jogada o sistema escolheu, junto do placar. Exemplo:
+	Gabriel: Pedra X CPU: Papel	
+	0 X 1 
+
+5 - Quem atingir 3 pontos primeiro vence. será exibido a seguinte frase "Parabéns 'nome' Você foi o vencedor" caso o usuário seja o ganhador, e caso o sistema ganhe apresente "Infelizmente você perdeu". Exemplo: 
+
+	Infelizmente você perdeu
+Placar
+Gabriel 0 X 3 CPU
+
+
+Extra: Utilize o Math.Random(); para o sistema escolher pedra, papel ou tesoura de forma aleatória.

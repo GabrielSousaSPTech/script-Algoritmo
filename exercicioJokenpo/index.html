@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio - Jokenpo</title>
+</head>
+
+<body>
+
+    Digite o nome do jogador: <input type="text" id="input_nome"><br><br>
+    Escolha a sua jogada: <select id="select_jogada_usuario">
+        <option value="1">Pedra</option>
+        <option value="2">Papel</option>
+        <option value="3">Tesoura</option>
+    </select>
+    <button onclick="gameJokenpo()">
+        Jogar
+    </button><br><br>
+    <div id="resposta"></div>
+</body>
+
+</html>
+
+<script>
+    var pontuacaoSistema = 0;
+    var pontuacaoJogador = 0;
+    function gameJokenpo() {
+        const nomeJogador = input_nome.value;
+        const jogadaUsuario = Number(select_jogada_usuario.value);
+        var jogadaSistema = parseInt((Math.random() * 3) + 1);
+        var mensagem = ''   
+        var escolhaUsuario = ''
+        var escolhaSistema = ''
+        if(jogadaUsuario == 1 ){
+            escolhaUsuario += 'Pedra'
+        }else if (jogadaUsuario == 2){
+            escolhaUsuario += 'Papel'
+        }else {
+            escolhaUsuario+='Tesoura'
+        }
+
+        if(jogadaSistema == 1 ){
+            escolhaSistema += 'Pedra'
+        }else if (jogadaSistema == 2){
+            escolhaSistema += 'Papel'
+        }else {
+            escolhaSistema+='Tesoura'
+        }
+
+        if (jogadaUsuario == 2 && jogadaSistema == 3 || jogadaUsuario == 3 && jogadaSistema == 1 || jogadaUsuario == 1 && jogadaSistema == 2) {
+            pontuacaoSistema += 1;
+        } else if (jogadaSistema == 2 && jogadaUsuario == 3 || jogadaSistema == 3 && jogadaUsuario == 1 || jogadaSistema == 1 && jogadaUsuario == 2) {
+            pontuacaoJogador += 1;
+        };
+        mensagem += `${nomeJogador}: ${escolhaUsuario}  X CPU: ${escolhaSistema}`
+        mensagem += ` <p>${pontuacaoJogador}  X  ${pontuacaoSistema}</p>`
+        if (pontuacaoSistema == 3) {
+            mensagem = `<h2>Infelizmente você perdeu </h2> 
+                <h4>Placar<br> ${nomeJogador} ${pontuacaoJogador}  X ${pontuacaoSistema} CPU </h4>
+            `
+            pontuacaoJogador = 0
+            pontuacaoSistema = 0
+        } else if (pontuacaoJogador == 3) {
+            pontuacaoJogador = 0
+            pontuacaoSistema = 0
+            mensagem = `<h2>Parabéns ${nomeJogador} Você foi o vencedor!</h2>
+            <h3>Placar</h3>
+            
+            <p> ${nomeJogador} ${pontuacaoJogador}  X CPU: ${pontuacaoSistema}</p>
+            `
+        }
+
+        resposta.innerHTML = mensagem;
+    }
+</script>
