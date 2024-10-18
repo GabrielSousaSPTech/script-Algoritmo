@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bradesco</title>
+</head>
+<body>
+    <div id="formularioDeValidacao">
+
+        <h4 id="palavraChaveParaSenha"></h4>
+        
+        Informe sua conta<br>
+        <input type="text" id="input_conta"><br><br>
+        Informe o digito<br>
+        <input type="text" id="input_digito"><br><br>
+        Informe a senha (Obrigatório ter mínimo de 12 caracters, conter a palavra chave, os caracters especiais e os númerais apresentados na tela)<br>
+        <input type="text" id="input_senha"><br><br>
+        <button onclick="simularConta()">Simular</button><br><br>
+    </div>
+
+    
+    <div id="simulacaoFinanceira">
+        <h1>Faça sua simulação</h1>
+        <p>Informe o Valor</p>
+        <input type="text" id="input_valor">
+        <p>Selecione a operação</p>
+        <select name="" id="select_operacao">
+            <option value="Empréstimo">Empréstimo</option>
+            <option value="Investimento">Investimento</option>
+        </select>
+        
+        <p>Selecione o Prazo</p>
+        <select name="" id="select_prazo">
+            <option value="3">3 Meses</option>
+            <option value="6">6 Meses</option>
+            <option value="12">12 Meses</option>
+        </select>
+<br>
+<br>
+<button onclick="calculoFinanceiro()">Calcular</button>
+</div>
+
+<div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    simulacaoFinanceira.style.display = 'none'
+var randomizadorPalavraChave = parseInt((Math.random()*3) + 1) 
+var palavraChave = ''
+
+var caracterEspecial = ''
+
+if(randomizadorPalavraChave == 1){
+    palavraChave = 'beta'
+}else if(randomizadorPalavraChave == 2){
+    palavraChave = 'alfa'
+}else if (randomizadorPalavraChave == 3){
+    palavraChave = 'gama'
+}
+
+var numeroAleatorio = 0
+for(var geradorDeNumeroAleatorio = 0;geradorDeNumeroAleatorio <2; geradorDeNumeroAleatorio++){
+
+    var numeroAleatorioSenha = parseInt((Math.random()*15) +3)
+    if(geradorDeNumeroAleatorio == 0){
+        
+        numeroAleatorio =  numeroAleatorioSenha
+        
+    }
+    else{
+        numeroAleatorio += ` ${numeroAleatorioSenha}`
+        
+        var numeroUm = numeroAleatorio.indexOf(' ')
+        
+
+        
+    }
+}
+var primeiroNumeroChave = '' 
+var segundoNumeroChave = ''
+        for(var concatenandoAleatorio = 0; concatenandoAleatorio <numeroUm; concatenandoAleatorio++){
+        primeiroNumeroChave += numeroAleatorio[concatenandoAleatorio]
+        }
+
+        for(var concatenandoSegundoAleatorio = numeroUm+1; concatenandoSegundoAleatorio <numeroAleatorio.length; concatenandoSegundoAleatorio++){
+            segundoNumeroChave += numeroAleatorio[concatenandoSegundoAleatorio]
+        }
+
+for(var quantidadeCaracteres = 0 ; quantidadeCaracteres <2; quantidadeCaracteres++){
+    var randomizadorCaracterEspecial = parseInt((Math.random()*4) + 1) 
+    
+    
+    
+
+    if(randomizadorCaracterEspecial == 1){
+        caracterEspecial += '# '
+    }else if(randomizadorCaracterEspecial == 2){
+        caracterEspecial += '@ '
+    }else if (randomizadorCaracterEspecial == 3){
+        caracterEspecial += '& '
+    }else if(randomizadorCaracterEspecial == 4){
+        caracterEspecial += '! '
+    }
+}
+
+
+palavraChaveParaSenha.innerText = `Palavra chave: ${palavraChave}, Caracter especial: ${caracterEspecial} e Númeral ${numeroAleatorio}`
+
+function simularConta(){
+    simulacaoFinanceira.style.display = 'none'
+    var saidaParaATela = ''
+    const conta = input_conta.value;
+    const digito = Number(input_digito.value);
+    const senha = input_senha.value;
+    const primeiroCaracterEspecial = senha.indexOf(caracterEspecial[0])
+    const segundoCaracterEspecial = senha.indexOf(caracterEspecial[2], primeiroCaracterEspecial+1)
+    const primeiroNumeroAleatorio = senha.indexOf(primeiroNumeroChave)
+    const segundoNumeroAleatorio = senha.indexOf(segundoNumeroChave, primeiroNumeroAleatorio+1)
+    const tamanhoSenha = Number(senha.length)>=12
+    const contemPalavraChave = senha.indexOf(palavraChave) != -1 
+    const contemPrimeiroCaracterEspecial =  primeiroCaracterEspecial!= -1 
+    const contemSegundoCaracterEspecial = segundoCaracterEspecial != -1 
+    const contemPrimeiroNumeroAleatorio = primeiroNumeroAleatorio != -1
+    const contemSegundoNumeroAleatorio = segundoNumeroAleatorio != -1
+    
+    
+    
+    var digitoInicialPar = (Number(conta[0]) + Number(conta[1])) % 2 == 0
+    
+    if(conta.length == 6 && digitoInicialPar){
+        const multiplicador = parseInt((Math.random() *4)+2)
+        const multiplicacaoConta = conta * multiplicador
+        
+        saidaParaATela = `Camada de Segurança: ${conta} X ${multiplicador} = ${multiplicacaoConta}`
+        const contaComSeguranca = multiplicacaoConta.toString()
+        var verificacaoUltimoDigito = contaComSeguranca[contaComSeguranca.length-1] == digito
+        
+        if(!verificacaoUltimoDigito){
+            saidaParaATela = "O digito informado não corresponde à conta"
+        }else{
+            if(!tamanhoSenha ||
+            !contemPalavraChave ||
+            !contemPrimeiroCaracterEspecial ||
+            !contemSegundoCaracterEspecial ||
+            !contemPrimeiroNumeroAleatorio ||
+            !contemSegundoNumeroAleatorio){
+                saidaParaATela = 'Senha deve conter a palavra aleatória e os caracteres especiais.'
+            }else{
+                
+                const coeficienteRisco = parseInt((Math.random() *100) + 1)
+                
+                
+                if(coeficienteRisco<=40){
+                    saidaParaATela = 'Risco alto – operação não permitida.'
+                    
+                } else{
+                    saidaParaATela = 'Operação segura'
+                    if(coeficienteRisco<=70){
+                        saidaParaATela = 'Operação com certo grau de risco, continue...'
+                    }
+                    
+                    
+                    
+                    simulacaoFinanceira.style.display = 'block'
+                    formularioDeValidacao.style.display = 'none'
+                }
+            }
+        }
+    }else {
+        saidaParaATela = "Conta Inválida"
+    }
+    
+    resposta.innerHTML = saidaParaATela
+}
+
+function calculoFinanceiro(){
+    var respostaDoCalculo = ''
+    const valor = Number(input_valor.value);
+    const operacao = select_operacao.value;
+    const prazo = Number(select_prazo.value);
+
+    const operacaoEmprestimo = operacao == 'Empréstimo';
+
+    var valorComJuros = valor
+    var jurosEmprestimo = 0
+    if(operacaoEmprestimo){
+        if(prazo==12 ){
+            jurosEmprestimo = 1.24
+        }else if(prazo == 6){
+            jurosEmprestimo = 1.16
+            
+        }else if(prazo == 3){
+            jurosEmprestimo = 1.10
+            
+        }
+        for(var mesEmprestimo = 1; mesEmprestimo <= prazo; mesEmprestimo++){
+            valorComJuros*= 
+            jurosEmprestimo
+            respostaDoCalculo += `<p>Mês ${mesEmprestimo} - Para o empréstimo de R$ ${valor} no prazo de ${prazo} Meses, o valor atualizado será de ${valorComJuros.toLocaleString("pt-BR", { style: 'currency', currency: 'BRL' })}</p>`
+        }
+    }else{
+        if(prazo==12 ){
+            jurosEmprestimo = 1.13
+        }else if(prazo == 6){
+            jurosEmprestimo = 1.09
+            
+        }else if(prazo == 3){
+            jurosEmprestimo = 1.04
+            
+        }
+        for(var mesInvestimento = 1; mesInvestimento <= prazo; mesInvestimento++){
+            valorComJuros*= 
+            jurosEmprestimo
+            respostaDoCalculo += `<p>Mês ${mesInvestimento} - Para o Investimento de R$ ${valor} no prazo de ${prazo} Meses, o valor atualizado será de ${valorComJuros.toLocaleString("pt-BR", { style: 'currency', currency: 'BRL' })}</p>`
+        }
+    }
+    resposta.innerHTML = `<p>${respostaDoCalculo} </p> <button onclick="deixarValidacaoVisivel()">Voltar à Simulação</button>`
+    
+}
+
+function deixarValidacaoVisivel(){
+    formularioDeValidacao.style.display = 'block'
+    simulacaoFinanceira.style.display = 'none'
+    resposta.innerHTML = ''
+}
+</script>
