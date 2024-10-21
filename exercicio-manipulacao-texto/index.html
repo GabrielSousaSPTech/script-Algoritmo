@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio - 14</title>
+</head>
+<body>
+    <p>Informe Uma palavra e ela será embalharada</p>
+    <input type="text" id="input_frase"><br><br>
+    <button onclick="embaralharFrase()">Embaralhar</button><br><br>
+    <p id="resposta"></p>
+</body>
+</html>
+
+<script>
+    function embaralharFrase(){
+        const frase = input_frase.value
+
+        const tamanhoFrase = frase.length - 1
+        var posicaoJaEscolhida = ''
+        var posicaoJaTrocada = ''
+        var fraseAtribuida = ''
+        resposta.innerHTML = ''
+        
+        for(var i = 0; i<=tamanhoFrase; i++){
+            const posicaoAleatoria = Math.floor((Math.random()* frase.length))
+            const posicaoTrocada = Math.floor((Math.random()* frase.length))
+            const isPosicaoAleatoria = posicaoJaEscolhida.indexOf(posicaoAleatoria.toString()) === -1;
+            const isPosicaoTrocada = posicaoJaTrocada.indexOf(posicaoTrocada.toString()) === -1;
+            if(isPosicaoAleatoria && isPosicaoTrocada ){
+                if(posicaoAleatoria !=posicaoTrocada){
+                    posicaoJaEscolhida += `${posicaoAleatoria};`
+                    posicaoJaTrocada += `${posicaoTrocada};`
+                }
+                var caracterAleatorio = frase[posicaoAleatoria]
+                var caracterQueVaiSerTrocado = frase[posicaoTrocada]
+                    fraseAtribuida += frase[posicaoTrocada].replace(caracterQueVaiSerTrocado,caracterAleatorio)
+
+                    
+                }else{
+                i--
+            }
+
+            if(frase.length == fraseAtribuida.length ){
+                i = tamanhoFrase
+            }
+                
+                
+            }
+            resposta.innerHTML = `Palavra Original: ${frase} -> Palavra embaralhada: ${fraseAtribuida}`
+
+    }
+</script>
